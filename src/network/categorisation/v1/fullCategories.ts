@@ -4,7 +4,7 @@ import type { Category } from "~/definitions/category";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
 import { BadCredentialsError, ExpiredTokenError, TechnicalError } from "~/constants/errors";
-import { PHONE_IDENTIFIER } from "~/constants/phone-identifier";
+import { retrieveHashFromAccessToken } from "~/core/retrieve-hash";
 
 /**
  * Retrieve the full list of categories for the categorisation.
@@ -14,7 +14,7 @@ export async function getCategorisationV1FullCategories (accessToken: string, st
     headers: {
       "Authorization": `Bearer ${accessToken}`,
       correlationId: uuidv4(),
-      hashId: PHONE_IDENTIFIER,
+      hashId: retrieveHashFromAccessToken(accessToken),
       structureId,
       "User-Agent": `MaBanque/${APP_ANDROID_VERSION}`
     }

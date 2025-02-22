@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
-import { PHONE_IDENTIFIER } from "~/constants/phone-identifier";
+import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
 // TODO: find out what happens when not enrolled, or other states.
 export type Enrollment = {
@@ -16,7 +16,7 @@ export async function getScadV1Enrollments (structureId: string, authSessionId: 
     headers: {
       authSessionId,
       correlationId: uuidv4(),
-      hashId: PHONE_IDENTIFIER,
+      hashId: TEMPORARY_PHONE_IDENTIFIER,
       structureId,
       "User-Agent": `MaBanque/${APP_ANDROID_VERSION}`
     }

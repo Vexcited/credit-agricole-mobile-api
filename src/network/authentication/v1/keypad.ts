@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import type { Keypad, Tokens } from "~/definitions";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
-import { PHONE_IDENTIFIER } from "~/constants/phone-identifier";
+import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
 export type EnrollmentErrorDetails = {
   auth_session_id: string
@@ -34,7 +34,7 @@ export async function getAuthenticationV1Keypad (structureId: string): Promise<K
   const response = await fetch("https://nmb.credit-agricole.fr/authentication/v1/keypad", {
     headers: {
       correlationId: uuidv4(),
-      hashId: PHONE_IDENTIFIER,
+      hashId: TEMPORARY_PHONE_IDENTIFIER,
       structureId,
       "User-Agent": `MaBanque/${APP_ANDROID_VERSION}`
     }
@@ -60,7 +60,7 @@ export async function postAuthenticationV1Keypad (structureId: string, login: st
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
       correlationId: uuidv4(),
-      hashId: PHONE_IDENTIFIER,
+      hashId: TEMPORARY_PHONE_IDENTIFIER,
       structureId,
       "User-Agent": `MaBanque/${APP_ANDROID_VERSION}`
     },
