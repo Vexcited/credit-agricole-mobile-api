@@ -6,7 +6,7 @@ import { APP_ANDROID_VERSION } from "~/constants/app";
 import { BASE_URL } from "~/constants/endpoints";
 import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
-export async function getNetworkStructureV1All (): Promise<Array<Structure>> {
+export async function getStructureV1All (): Promise<Array<Structure>> {
   const response = await fetch(`${BASE_URL}/structure/v1/all`, {
     headers: {
       correlationId: uuidv4(),
