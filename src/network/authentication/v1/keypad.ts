@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import type { Keypad, Tokens } from "~/definitions";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
+import { BASE_URL } from "~/constants/endpoints";
 import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
 export type EnrollmentErrorDetails = {
@@ -31,7 +32,7 @@ export class KeypadExpiredError extends Error {
  * Retrieve the keypad layout for authentication.
  */
 export async function getAuthenticationV1Keypad (structureId: string): Promise<Keypad> {
-  const response = await fetch("https://nmb.credit-agricole.fr/authentication/v1/keypad", {
+  const response = await fetch(`${BASE_URL}/authentication/v1/keypad`, {
     headers: {
       correlationId: uuidv4(),
       hashId: TEMPORARY_PHONE_IDENTIFIER,
@@ -51,7 +52,7 @@ export async function getAuthenticationV1Keypad (structureId: string): Promise<K
  * @param passwordKeys Index of the keys pressed on the keypad.
  */
 export async function postAuthenticationV1Keypad (structureId: string, login: string, id: string, passwordKeys: string[]): Promise<Tokens> {
-  const response = await fetch(`https://nmb.credit-agricole.fr/authentication/v1/keypad/${structureId}`, {
+  const response = await fetch(`${BASE_URL}/authentication/v1/keypad/${structureId}`, {
     body: JSON.stringify({
       id,
       login,

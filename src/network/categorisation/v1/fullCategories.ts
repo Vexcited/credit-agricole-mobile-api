@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import type { Category } from "~/definitions";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
+import { BASE_URL } from "~/constants/endpoints";
 import { AccessDeniedError, BadCredentialsError, ExpiredTokenError, TechnicalError } from "~/constants/errors";
 import { retrieveHashFromAccessToken } from "~/core/retrieve-hash";
 
@@ -10,7 +11,7 @@ import { retrieveHashFromAccessToken } from "~/core/retrieve-hash";
  * Retrieve the full list of categories for the categorisation.
  */
 export async function getCategorisationV1FullCategories (accessToken: string): Promise<Array<Category>> {
-  const response = await fetch("https://nmb.credit-agricole.fr/categorisation/v1/fullCategories", {
+  const response = await fetch(`${BASE_URL}/categorisation/v1/fullCategories`, {
     headers: {
       "Authorization": `Bearer ${accessToken}`,
       correlationId: uuidv4(),

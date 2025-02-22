@@ -1,10 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
+import { BASE_URL } from "~/constants/endpoints";
 import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
 export async function postAuthenticationV1ScadRetainDeviceFirstCo (structureId: string, pivotId: string, authSessionId: string, login: string): Promise<void> {
-  const response = await fetch("https://nmb.credit-agricole.fr/authentication/v1/scad/retain_device/first_co", {
+  const response = await fetch(`${BASE_URL}/authentication/v1/scad/retain_device/first_co`, {
     body: JSON.stringify({
       auth_session_id: authSessionId,
       login,

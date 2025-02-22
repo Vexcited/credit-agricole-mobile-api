@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
+import { BASE_URL } from "~/constants/endpoints";
 import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
 // TODO: find out what happens when not enrolled, or other states.
@@ -12,7 +13,7 @@ export type Enrollment = {
 };
 
 export async function getScadV1Enrollments (structureId: string, authSessionId: string, pivotId: string): Promise<Enrollment> {
-  const response = await fetch(`https://nmb.credit-agricole.fr/scad/v1/enrollments/${pivotId}?force_update=true`, {
+  const response = await fetch(`${BASE_URL}/scad/v1/enrollments/${pivotId}?force_update=true`, {
     headers: {
       authSessionId,
       correlationId: uuidv4(),

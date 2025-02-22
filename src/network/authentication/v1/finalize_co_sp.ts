@@ -1,11 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
+import { BASE_URL } from "~/constants/endpoints";
 import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 import { Tokens } from "~/definitions";
 
 export async function postAuthenticationV1FinalizeCoSp (structureId: string, pivotId: string, authSessionId: string): Promise<null | Tokens> {
-  const response = await fetch(`https://nmb.credit-agricole.fr/authentication/v1/finalize_co_sp/${structureId}`, {
+  const response = await fetch(`${BASE_URL}/authentication/v1/finalize_co_sp/${structureId}`, {
     body: JSON.stringify({
       auth_session_id: authSessionId,
       pivot_id: pivotId

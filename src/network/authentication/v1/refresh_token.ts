@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import type { Tokens } from "~/definitions";
 
 import { APP_ANDROID_VERSION } from "~/constants/app";
-import { TEMPORARY_PHONE_IDENTIFIER } from "~/constants/phone-identifier";
+import { BASE_URL } from "~/constants/endpoints";
 import { retrieveHashFromAccessToken } from "~/core/retrieve-hash";
 
 /**
@@ -13,7 +13,7 @@ export async function postAuthenticationV1RefreshToken (expiredAccessToken: stri
   if (retrieveHashFromAccessToken(refreshToken))
     throw new Error("You gave an access token instead of a refresh token.");
 
-  const response = await fetch("https://nmb.credit-agricole.fr/authentication/v1/refresh_token", {
+  const response = await fetch(`${BASE_URL}/authentication/v1/refresh_token`, {
     body: JSON.stringify({
       refresh_token: refreshToken
     }),
