@@ -10,6 +10,6 @@
 - [x] `POST /authentication/v1/finalize_co_sp`
 - [ ] `POST /authentication/v1/finalize_sp`
 - [ ] `POST /authentication/v1/finalize_otp`
-- [ ] `POST /authentication/v1/refresh_token`
+- [x] `POST /authentication/v1/refresh_token`
 - [ ] `GET  /authentication/v1/route/reset-pwd`
 - [ ] `POST /authentication/v1/signout`
