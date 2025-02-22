@@ -7,14 +7,24 @@ import { getCategorisationV1FullCategories } from "../src";
 config({ path: join(__dirname, ".env") });
 
 void async function main () {
-  const structure = process.env.STRUCTURE;
   const accessToken = process.env.ACCESS_TOKEN;
 
-  if (!structure || !accessToken) {
-    console.error("Please provide the STRUCTURE and ACCESS_TOKEN environment variables.");
+  if (!accessToken) {
+    console.error("Please provide the ACCESS_TOKEN environment variables.");
     return;
   }
 
-  const categories = await getCategorisationV1FullCategories(accessToken, structure);
-  console.dir(categories, { depth: Infinity });
+  // Retrieve all the categories as a flat list.
+  const categories = await getCategorisationV1FullCategories(accessToken);
+
+  // Let's display the categories in a tree-like structure.
+  // We'll start by displaying the top-level categories.
+  for (const category of categories.filter((category) => !category.parent_id)) {
+    console.log(`\n${category.id} - ${category.label}`);
+
+    // Then, we'll display the subcategories of each top-level category.
+    for (const subcategory of categories.filter((subcategory) => subcategory.parent_id === category.id)) {
+      console.log(`  ${subcategory.id} - ${subcategory.label}`);
+    }
+  }
 }();
