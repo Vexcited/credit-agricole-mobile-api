@@ -1,0 +1,57 @@
+{
+  "name": "credit-agricole-mobile-api",
+  "version": "0.0.0",
+  "description": "A client for the Credit Agricole Mobile API.",
+  "repository": "https://github.com/Vexcited/credit-agricole-mobile-api",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "tsc && eslint ."
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "credit-agricole",
+    "banking",
+    "mobile",
+    "bank",
+    "api"
+  ],
+  "author": {
+    "url": "https://www.vexcited.com",
+    "email": "contact@vexcited.com",
+    "name": "Mikkel ALMONTE--RINGAUD"
+  },
+  "bugs": {
+    "url": "https://github.com/Vexcited/credit-agricole-mobile-api/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^4.0.1",
+    "@types/bun": "^1.2.2",
+    "@typescript-eslint/parser": "^8.24.1",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.21.0",
+    "eslint-plugin-perfectionist": "^4.9.0",
+    "terser": "^5.39.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}
