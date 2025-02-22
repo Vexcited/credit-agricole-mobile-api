@@ -1,4 +1,9 @@
+const decodeJWT = (token: string): any => {
+  const parts = token.split(".");
+  return JSON.parse(atob(parts[1]));
+};
+
 export const retrieveHashFromAccessToken = (accessToken: string): string => {
-  const parts = accessToken.split(".");
-  return JSON.parse(atob(parts[1])).hashId;
+  const { hashId } = decodeJWT(accessToken);
+  return hashId;
 };
