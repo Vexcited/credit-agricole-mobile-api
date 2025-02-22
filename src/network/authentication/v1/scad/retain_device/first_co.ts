@@ -4,7 +4,7 @@ import { APP_ANDROID_VERSION } from "~/constants/app";
 import { PHONE_IDENTIFIER } from "~/constants/phone-identifier";
 
 export async function postAuthenticationV1ScadRetainDeviceFirstCo (structureId: string, pivotId: string, authSessionId: string, login: string): Promise<void> {
-  const response = await fetch(`https://nmb.credit-agricole.fr/authentication/v1/keypad/${structureId}`, {
+  const response = await fetch("https://nmb.credit-agricole.fr/authentication/v1/scad/retain_device/first_co", {
     body: JSON.stringify({
       auth_session_id: authSessionId,
       login,
