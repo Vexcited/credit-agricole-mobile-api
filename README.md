@@ -1,7 +1,7 @@
-# Wrapper for the [&nearr;&nbsp;Credit Agricole](https://www.credit-agricole.fr/) Mobile API
+# Wrapper for the [&nearr;&nbsp;Crédit Agricole](https://www.crédit-agricole.fr/) Mobile API
 
 This wrapper was mostly made by looking at the requests
-made by the official Credit Agricole Android app.
+made by the official [&nearr;&nbsp;Crédit Agricole Android app](https://play.google.com/store/apps/details?id=fr.creditagricole.androidapp).
 
 ## Installation
 
