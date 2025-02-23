@@ -14,8 +14,6 @@ pnpm add credit-agricole-mobile-api
 bun add credit-agricole-mobile-api
 ```
 
-> Note that this package is not yet published on NPM, you need to wait a bit...
-
 ## Usage
 
 We don't have documentation yet, so please refer to the
