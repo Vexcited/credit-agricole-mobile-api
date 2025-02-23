@@ -12,6 +12,13 @@ export class BadCredentialsError extends Error {
   }
 }
 
+export class ContractNumberNotAuthorizedError extends Error {
+  constructor(public cause: string) {
+    super("Contract number given is not authorized.");
+    this.name = "ContractNumberNotAuthorizedError";
+  }
+}
+
 export class ExpiredTokenError extends Error {
   constructor(public cause: string) {
     super("Token has expired, please refresh it.");
