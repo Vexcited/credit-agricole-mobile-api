@@ -1,5 +1,7 @@
-name: Lint
-on: [push]
+name: Lint codebase
+on:
+  - pull_request
+  - push
 
 jobs:
   lint:
