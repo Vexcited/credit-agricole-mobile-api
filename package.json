@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsup",
+    "release": "release-it",
     "lint": "tsc && eslint ."
   },
   "files": [
@@ -40,6 +41,25 @@
     "url": "https://github.com/Vexcited/credit-agricole-mobile-api/issues"
   },
   "license": "GPL-3.0-or-later",
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}",
+      "tagAnnotation": "Release v${version}",
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "draft": false,
+      "releaseName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "hooks": {
+      "before:init": "pnpm lint",
+      "after:bump": "pnpm build"
+    }
+  },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^4.0.1",
     "@types/bun": "^1.2.2",
@@ -47,6 +67,7 @@
     "dotenv": "^16.4.7",
     "eslint": "^9.21.0",
     "eslint-plugin-perfectionist": "^4.9.0",
+    "release-it": "^18.1.2",
     "terser": "^5.39.0",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3"
