@@ -1,6 +1,6 @@
 {
   "name": "credit-agricole-mobile-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A client for the Crédit Agricole Mobile API.",
   "repository": "https://github.com/Vexcited/credit-agricole-mobile-api",
   "sideEffects": false,
