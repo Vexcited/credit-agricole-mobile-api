@@ -6,6 +6,7 @@ export * from "~/network/authentication/v1/refresh_token";
 export * from "~/network/authentication/v1/scad/retain_device/first_co";
 export * from "~/network/categorisation/v1/fullCategories";
 export * from "~/network/futureoperation/v1/future_card_operations";
+export * from "~/network/futureoperation/v1/future_transfers";
 export * from "~/network/home/v2/first_account";
 export * from "~/network/operation/v2/operations";
 export * from "~/network/scad/v1/enrollments";
