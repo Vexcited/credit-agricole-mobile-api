@@ -23,7 +23,7 @@ void async function main () {
   allFutureOperations.sort((a, b) => b.date_heure - a.date_heure);
 
   const currentBalance = account.balance.amount;
-  const futureBalance = allFutureOperations.reduce((acc, operation) => acc + operation.montant_en_euro.montant, currentBalance) - futureTransfersTotalAmount;
+  const futureBalance = allFutureOperations.reduce((acc, operation) => acc + operation.montant_en_euro.montant, currentBalance) + futureTransfersTotalAmount;
 
   console.log(`Currently at ${currentBalance.toFixed(2)}, but will be at ${futureBalance.toFixed(2)} after all future operations and transfers.`);
 
